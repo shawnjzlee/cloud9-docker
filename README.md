@@ -1,7 +1,8 @@
 Cloud9 v3 Dockerfile
 =============
 
-This repository contains Dockerfile of Cloud9 IDE for Docker's automated build published to the public Docker Hub Registry.
+This is a fork of [kdelfour/cloud9-docker](https://registry.hub.docker.com/u/kdelfour/cloud9-docker). Many thanks to kdelfour for making this lightweight docker image of Cloud9. It uses only around ~110MB when idle. ;)
+This repo contains some of my modification to make the cloud9-docker more flexibility.
 
 # Base Docker Image
 [kdelfour/supervisor-docker](https://registry.hub.docker.com/u/kdelfour/supervisor-docker/)
@@ -16,17 +17,24 @@ Download automated build from public Docker Hub Registry: docker pull kdelfour/c
 
 ## Usage
 
-    docker run -it -d -p 80:80 kdelfour/cloud9-docker
+    docker run -it -d -p 80:80 minhnhut/cloud9-docker
     
 You can add a workspace as a volume directory with the argument *-v /your-path/workspace/:/workspace/* like this :
 
-    docker run -it -d -p 80:80 -v /your-path/workspace/:/workspace/ kdelfour/cloud9-docker
+    docker run -it -d -p 80:80 -v /your-path/workspace/:/workspace/ minhnhut/cloud9-docker
+    
+You can pass some extra parameters to node /cloud9/server.js by using Enviroment variable: C9_EXTRA
+Example:
+
+    docker run -it -d -p 80:80 -v minhnhut/cloud9-docker -e C9_EXTRA='--auth user:password'
+    
+Above usage enable built-in basic authentication of cloud9-sdk with 'user' as username, and 'password' as password.
     
 ## Build and run with custom config directory
 
 Get the latest version from github
 
-    git clone https://github.com/kdelfour/cloud9-docker
+    git clone https://github.com/minhnhut/cloud9-docker
     cd cloud9-docker/
 
 Build it
