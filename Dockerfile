@@ -3,7 +3,6 @@
 # ------------------------------------------------------------------------------
 # Pull base image.
 FROM kdelfour/supervisor-docker
-MAINTAINER Kevin Delfour <kevin@delfour.eu>
 
 # ------------------------------------------------------------------------------
 # Install base
