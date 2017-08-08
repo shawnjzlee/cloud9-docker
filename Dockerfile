@@ -18,7 +18,17 @@ RUN sudo apt-get install -y nodejs
 # Install Cloud9
 RUN git clone https://github.com/c9/core.git /cloud9
 WORKDIR /cloud9
-RUN scripts/install-sdk.sh
+
+#
+# Workaround, new npm version try to remove node_modules before build
+# is behavior is not present on npm 4.6.1
+# Let's switch to 4.6.1 temporarily then switch back
+#
+
+sudo npm i -g npm@4.6.1
+sudo scripts/install-sdk.sh
+git reset HEAD --hard
+sudo npm i -g npm
 
 # Tweak standlone.js conf
 RUN sed -i -e 's_127.0.0.1_0.0.0.0_g' /cloud9/configs/standalone.js 
