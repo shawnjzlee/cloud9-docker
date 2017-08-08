@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
-if [[ -z "${DEPLOY_ENV}" ]]; then
-  C9_EXTRA = ""
+if [[ -z "${C9_EXTRA}" ]]; then
+  C9_EXTRA=""
 fi
 
 export C9_EXTRA
