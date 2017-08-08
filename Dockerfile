@@ -25,10 +25,10 @@ WORKDIR /cloud9
 # Let's switch to 4.6.1 temporarily then switch back
 #
 
-sudo npm i -g npm@4.6.1
-sudo scripts/install-sdk.sh
-git reset HEAD --hard
-sudo npm i -g npm
+RUN sudo npm i -g npm@4.6.1
+RUN sudo scripts/install-sdk.sh
+RUN git reset HEAD --hard
+RUN sudo npm i -g npm
 
 # Tweak standlone.js conf
 RUN sed -i -e 's_127.0.0.1_0.0.0.0_g' /cloud9/configs/standalone.js 
