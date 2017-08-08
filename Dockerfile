@@ -41,5 +41,7 @@ EXPOSE 80
 EXPOSE 3000
 
 # ------------------------------------------------------------------------------
-# Start supervisor, define default command.
-CMD ["supervisord", "-c", "/etc/supervisor/supervisord.conf"]
+# Copy endpoint.sh bash script into container
+COPY conf/endpoint.sh /bin/endpoint.sh
+
+CMD ["endpoint.sh"]
