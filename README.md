@@ -1,11 +1,11 @@
 Cloud9 v3 Dockerfile
 =============
 
-This is a fork of [kdelfour/cloud9-docker](https://registry.hub.docker.com/u/kdelfour/cloud9-docker). Many thanks to kdelfour for making this lightweight docker image of Cloud9. It uses only around ~110MB when idle. ;)
+This is a fork of [kdelfour/cloud9-docker](https://hub.docker.com/r/kdelfour/cloud9-docker). Many thanks to kdelfour for making this lightweight docker image of Cloud9. It uses only around ~110MB when idle. ;)
 This repo contains some of my modification to make the cloud9-docker more flexibility.
 
 # Base Docker Image
-[kdelfour/supervisor-docker](https://registry.hub.docker.com/u/kdelfour/supervisor-docker/)
+[kdelfour/supervisor-docker](https://hub.docker.com/u/kdelfour/supervisor-docker/)
 
 # Installation
 
