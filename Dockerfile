@@ -7,7 +7,17 @@ FROM kdelfour/supervisor-docker
 # ------------------------------------------------------------------------------
 # Install base
 RUN apt-get update
-RUN apt-get install -y build-essential g++ curl libssl-dev apache2-utils git libxml2-dev sshfs
+RUN apt-get install -y build-essential curl libssl-dev apache2-utils git libxml2-dev sshfs 
+RUN apt-get install -y software-properties-common python-software-properties
+RUN add-apt-repository -y ppa:git-core/ppa
+RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test
+RUN add-apt-repository -y ppa:brightbox/ruby-ng
+RUN apt-get update
+RUN apt-get install -y gcc-5 g++-5
+RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 60 --slave /usr/bin/g++ g++ /usr/bin/g++-5
+RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
+RUN apt-get install -y ruby2.4
+RUN gem install cucumber rspec
 
 # ------------------------------------------------------------------------------
 # Install Node.js
